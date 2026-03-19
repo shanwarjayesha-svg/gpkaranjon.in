@@ -1271,7 +1271,30 @@ margin-top:15px;
   max-width:100%;
   object-fit:contain;
 }
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  background: #fde047;
+  white-space: nowrap;
+  position: relative;
+}
 
+.marquee p {
+  position: absolute;
+  white-space: nowrap;
+  animation: marqueeMove 15s linear infinite;
+  font-weight: bold;
+}
+
+@keyframes marqueeMove {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* FIX PANEL */
+.panel{
+  min-height:200px;
+}
 </style>
 </head>
 
@@ -1302,7 +1325,9 @@ margin-top:15px;
 </nav>
 
 <div class="notice">
-<marquee id="noticeText">महत्वाची सूचना: ग्रामसभा 15 मार्च रोजी होणार आहे.</marquee>
+<div class="marquee">
+  <p id="noticeText">महत्वाची सूचना: ग्रामसभा 15 मार्च रोजी होणार आहे.</p>
+</div>
 </div>
 
 <div class="container">
@@ -1612,62 +1637,62 @@ margin-top:15px;
 <div class="gallery-grid">
 
 <div class="gallery-box event">
-<img src="image/a.jpeg?village,event" loading="lazy">
+<img src="image/a.jpeg" loading="lazy">
 <span>कार्यक्रम</span>
 </div>
 
 <div class="gallery-box event">
-<img src="image/c.jpeg?village,event" loading="lazy">
+<img src="image/c.jpeg" loading="lazy">
 <span>कार्यक्रम</span>
 </div>
 
 <div class="gallery-box event">
-<img src="image/d.jpeg?village,event" loading="lazy">
+<img src="image/d.jpeg" loading="lazy">
 <span>कार्यक्रम</span>
 </div>
 
 <div class="gallery-box event">
-<img src="image/e.jpeg?village,event" loading="lazy">
+<img src="image/e.jpeg" loading="lazy">
 <span>कार्यक्रम</span>
 </div>
 
 <div class="gallery-box event">
-<img src="image/f.jpeg?village,event" loading="lazy">
+<img src="image/f.jpeg" loading="lazy">
 <span>कार्यक्रम</span>
 </div>
 
 <div class="gallery-box event">
-<img src="image/g.jpeg?village,event" loading="lazy">
+<img src="image/g.jpeg" loading="lazy">
 <span>कार्यक्रम</span>
 </div>
 
 <div class="gallery-box event">
-<img src="image/h.jpeg?village,event" loading="lazy">
+<img src="image/h.jpeg" loading="lazy">
 <span>कार्यक्रम</span>
 </div>
 
 <div class="gallery-box development">
-<img src="https://source.unsplash.com/400x300/?village,event" loading="lazy">
+<img src="" loading="lazy">
 <span>रस्ता विकास</span>
 </div>
 
 <div class="gallery-box clean">
-<img src="https://source.unsplash.com/400x300/?village,event" loading="lazy">
+<img src="t" loading="lazy">
 <span>स्वच्छता अभियान</span>
 </div>
 
 <div class="gallery-box scheme">
-<img src="https://source.unsplash.com/400x300/?village,event" loading="lazy">
+<img src="" loading="lazy">
 <span>शेतकरी योजना</span>
 </div>
 
 <div class="gallery-box event">
-<img src="b.jpeg?village,event" loading="lazy">
+<img src="b.jpeg" loading="lazy">
 <span>शाळा कार्यक्रम</span>
 </div>
 
 <div class="gallery-box development">
-<img src="https://source.unsplash.com/400x300/?village,event" loading="lazy">
+<img src="" loading="lazy">
 <span>बांधकाम</span>
 </div>
 
@@ -2019,7 +2044,7 @@ function closeQR(){
 
 
 // Auto status change simulation
-setTimeout(()=>{
+setTimeout()=>{
 savedComplaint.status="In Progress";
 document.getElementById("statusBadge").innerText="In Progress";
 document.getElementById("statusBadge").className="badge progress";
@@ -2125,13 +2150,14 @@ function updateCounter(){
 window.addEventListener("load", function(){
 
 // Loader hide
-document.getElementById("loader").style.opacity="0";
+const loader = document.getElementById("loader");
+loader.style.opacity="0";
 
 setTimeout(()=>{
-document.getElementById("loader").style.display="none";
+loader.style.display="none";
 },500);
 
-// Gallery init
+// Gallery
 initGallery();
 
 // Slider
