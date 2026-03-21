@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="mr">
 <head>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer></script>
 
 <script>
 (function(){
@@ -9,7 +9,7 @@ emailjs.init("YOUR_PUBLIC_KEY");
 })();
 </script>
 <link rel="preload" as="image" href="image/k.jpeg">
-<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gram Panchayat Karanjon</title>
@@ -1330,7 +1330,7 @@ margin-top:15px;
 </div>
 <div class="center panel">
 <div class="carousel">
-<img src="image/k.jpeg" class="slide active" loading="lazy">
+<img src="image/k.webp" class="slide active" loading="lazy">
 <img src="image/l.jpeg" class="slide" loading="lazy">
 <img src="image/i.jpeg" class="slide" loading="lazy">
 </div>
@@ -1443,7 +1443,7 @@ margin-top:15px;
 </div> <!-- about section close -->
 
 <!-- SERVICES -->
-<section id="services" class="section services-section">
+<div id="services" class="section services-section">
 
   <h2 class="services-title">सेवा विभाग</h2>
 
@@ -1543,7 +1543,7 @@ margin-top:15px;
 
       <tbody>
         <tr>
-          <td><img src="image/" class="member-photo"></td>
+          <td><img src="image/default.png"></td>
           <td>सौ.सुमन बालाराम गवते </td>
           <td><span class="badge member">सदस्य</span></td>
           <td>२</td>
@@ -1551,7 +1551,7 @@ margin-top:15px;
         </tr>
 
         <tr>
-          <td><img src="image/" class="member-photo"></td>
+          <td><img src="image/default.png"></td>
           <td>सौ.वर्षा विनोद सायरे</td>
           <td><span class="badge member">सदस्य</span></td>
           <td>१</td>
@@ -1646,31 +1646,6 @@ margin-top:15px;
 <div class="gallery-box event">
 <img src="image/h.jpeg" loading="lazy">
 <span>कार्यक्रम</span>
-</div>
-
-<div class="gallery-box development">
-<img src="" loading="lazy">
-<span>रस्ता विकास</span>
-</div>
-
-<div class="gallery-box clean">
-<img src="image/clean.jpg" loading="lazy">
-<span>स्वच्छता अभियान</span>
-</div>
-
-<div class="gallery-box scheme">
-<img src="image/clean.jpg" loading="lazy">
-<span>शेतकरी योजना</span>
-</div>
-
-<div class="gallery-box event">
-<img src="image/clean.jpg" loading="lazy">
-<span>शाळा कार्यक्रम</span>
-</div>
-
-<div class="gallery-box development">
-<img src="image/clean.jpg" loading="lazy">
-<span>बांधकाम</span>
 </div>
 
 </div>
@@ -2056,6 +2031,10 @@ window.addEventListener("load", function(){
 const loader = document.getElementById("loader");
 if(loader){
   loader.style.opacity="0";
+  setTimeout(()=>{
+    loader.style.display="none";
+  },500);
+}
 
 }
 
